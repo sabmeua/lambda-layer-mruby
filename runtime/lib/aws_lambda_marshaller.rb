@@ -21,7 +21,7 @@ module AwsLambda
       # formatted as JSON, and should get a different content-type header.
       def marshall_response(method_response)
         case method_response
-        when StringIO, IO
+        when IO
           [method_response, 'application/unknown']
         else
           method_response.to_json # application/json is assumed
