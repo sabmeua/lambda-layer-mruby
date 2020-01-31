@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/opt/bin/mruby -b /opt/lib/runtime.mrb
