@@ -4,7 +4,6 @@ class LambdaContext
     :identity, :client_context, :deadline_ms
 
   def initialize(request)
-    @clock_diff = Process.clock_gettime(Process::CLOCK_REALTIME, :millisecond) - Process.clock_gettime(Process::CLOCK_MONOTONIC, :millisecond)
     @deadline_ms = request['Lambda-Runtime-Deadline-Ms'].to_i
     @aws_request_id = request['Lambda-Runtime-Aws-Request-Id']
     @invoked_function_arn = request['Lambda-Runtime-Invoked-Function-Arn']
@@ -19,11 +18,5 @@ class LambdaContext
     if request['Lambda-Runtime-Client-Context']
       @client_context = JSON.parse(request['Lambda-Runtime-Client-Context'])
     end
-  end
-
-  def get_remaining_time_in_millis
-    now = Process.clock_gettime(Process::CLOCK_MONOTONIC, :millisecond) + @clock_diff
-    remaining = @deadline_ms - now
-    remaining > 0 ? remaining : 0
   end
 end
