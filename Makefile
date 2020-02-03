@@ -4,3 +4,5 @@ images:
 	docker build -t lambda-layer-mruby ./runtime
 layers: images
 	docker run --rm -i -v ${CWD}/layers:/tmp lambda-layer-mruby zip -r /tmp/layer-mruby.zip bin/mruby lib bootstrap -x *.rb
+functions: images
+	docker run --rm -i -v ${CWD}/functions:/tmp lambda-layer-mruby /tmp/compile.sh

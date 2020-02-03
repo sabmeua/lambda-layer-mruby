@@ -15,7 +15,7 @@ exit_code = 0
 
 begin
   @lambda_handler = LambdaHandler.new(env_handler: @env_handler)
-  require @lambda_handler.handler_file_name
+  require "#{@lambda_handler.handler_file_name}.mrb"
 rescue Exception => e # which includes LoadError or any exception within static user code
   runtime_loop_active = false
   exit_code = -4
