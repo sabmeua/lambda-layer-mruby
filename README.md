@@ -1,5 +1,13 @@
 # lambda-layer-mruby
 
+# Usage
+
+```bash
+$ make publish-layers  ## build and publish mruby custom runtime layer
+$ make functions       ## compile lambda function
+$ serverless deploy    ## deploy lambda function
+```
+
 # License
 
 lambda-layer-mruby uses [lambci/docker-lambda](https://github.com/lambci/docker-lambda) ruby2.5 bootstrap code with some changes.
