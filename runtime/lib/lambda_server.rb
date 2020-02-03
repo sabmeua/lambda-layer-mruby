@@ -25,7 +25,7 @@ class LambdaServer
     end
   end
 
-  def send_response(request_id:, response_object:, content_type: 'application/json')
+  def send_response(request_id:, response_object:, content_type:)
     response_uri = @server_address + "/runtime/invocation/#{request_id}/response"
     begin
       # unpack IO at this point

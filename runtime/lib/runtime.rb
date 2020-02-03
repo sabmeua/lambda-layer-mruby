@@ -44,6 +44,7 @@ while runtime_loop_active
       context: context
     )
     # end of user code
+    content_type = 'application/json'if content_type.nil?
     @lambda_server.send_response(
       request_id: request_id,
       response_object: handler_response,
