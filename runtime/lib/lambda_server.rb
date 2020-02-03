@@ -11,7 +11,7 @@ class LambdaServer
       http = HttpRequest.new
       resp = http.get(next_invocation_uri)
       if resp.code == 200
-        request_id = resp.headers["Lambda-Runtime-Aws-Request-Id"]
+        request_id = resp.headers["lambda-runtime-aws-request-id"]
         [request_id, resp]
       else
         raise LambdaErrors::InvocationError.new(
