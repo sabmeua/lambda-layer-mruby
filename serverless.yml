@@ -1,0 +1,13 @@
+service: mruby-app
+
+provider:
+    name: aws
+    region: ap-northeast-1
+    runtime: provided
+
+functions:
+    function:
+        handler: index.handler
+        description: ''
+package:
+    artifact: functions/lambda_function.zip
