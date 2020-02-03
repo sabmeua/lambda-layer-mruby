@@ -1,11 +1,11 @@
 #!/usr/bin/env mruby
 
-require 'lambda_errors.mrb'
-require 'lambda_server.mrb'
-require 'lambda_handler.mrb'
-require 'lambda_context.mrb'
-require 'lambda_logger.mrb'
-require 'aws_lambda_marshaller.mrb'
+require '/opt/lib/lambda_errors.mrb'
+require '/opt/lib/lambda_server.mrb'
+require '/opt/lib/lambda_handler.mrb'
+require '/opt/lib/lambda_context.mrb'
+require '/opt/lib/lambda_logger.mrb'
+require '/opt/lib/aws_lambda_marshaller.mrb'
 
 @env_handler = ENV["_HANDLER"]
 @lambda_server = LambdaServer.new
